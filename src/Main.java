@@ -3,54 +3,60 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/// Users/ yeonjin/ personal/ prepare-interview/ src/ questions/ questions_java. txt
-public class Main {
-    public static List<String> subjects = Arrays.asList("java", "spring", "network", "os", "db", "data_Structure", "algorithm");
 
+
+
+
+
+
+public class Main {
+    private static final List<String> SUBJECTS = List.of("java", "spring", "network", "os", "db", "data_Structure", "algorithm");
+    private static final String QUESTION_FILE_PREFIX = "questions_";
+    private static final String QUESTION_FILE_SUFFIX = ".txt";
+    private static final String SEPARATOR_LINE = "***************************************";
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        System.out.println("오늘의 주제는?");
+        for (int i = 0; i < SUBJECTS.size(); i++) {
+            System.out.println(i + ". " + SUBJECTS.get(i));
+        }
+        String todaySubject = null;
+        while (todaySubject == null) {
+            System.out.print("입력: ");
+            String input = br.readLine();
+            todaySubject = getTodaySubject(input);
+        }
 
-
-        String todaySubject = getTodaySubject(sb, br);
-        createTodayQuestion(sb, todaySubject);
-
+        System.out.println(SEPARATOR_LINE);
+        System.out.println(getTodayQuestion(todaySubject));
+        System.out.println(SEPARATOR_LINE);
 
     }
 
-    public static String getTodaySubject(StringBuilder sb, BufferedReader br) throws IOException {
-        sb.append("오늘의 주제는?").append("\n");
-        for (int i = 0; i < subjects.size(); i++) {
-            sb.append(i).append(". ").append(subjects.get(i)).append("\n");
-        }
-        sb.append("입력: ");
-        System.out.print(sb);
-        sb.setLength(0);
-
-        while (true) {
-            try {
-                String input = br.readLine();
-                int selectionNum = Integer.parseInt(input);
-                return subjects.get(selectionNum);
-            } catch (NumberFormatException e) {
-                System.out.println("보기에 있는 숫자를 입력해주세요");
+    public static String getTodaySubject(String input) {
+        try {
+            int selectionNum = Integer.parseInt(input);
+            if (selectionNum < 0 || selectionNum >= SUBJECTS.size()) {
+                System.out.println("리스트에 있는 번호를 입력해주세요.");
+                return null;
             }
+            return SUBJECTS.get(selectionNum);
+        } catch (NumberFormatException e) {
+            System.out.println("보기에 있는 숫자를 입력해주세요");
+            return null;
         }
-
     }
 
-    public static void createTodayQuestion(StringBuilder sb, String subject) throws IOException {
-        List<String> questions = Files.readAllLines(Paths.get("questions_" + subject + ".txt"));
+    public static String getTodayQuestion(String subject) throws IOException {
+        List<String> questions = Files.readAllLines(Paths.get(QUESTION_FILE_PREFIX + subject + QUESTION_FILE_SUFFIX));
+        if (questions.isEmpty()) {
+            return "질문 파일이 비어 있습니다.";
+        }
         Collections.shuffle(questions);
-        sb.append("***************************************").append("\n");
-        sb.append(questions.getFirst()).append("\n");
-        sb.append("***************************************").append("\n");
-        System.out.println(sb);
-
+        return questions.getFirst();
     }
 }
