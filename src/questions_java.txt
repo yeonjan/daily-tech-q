@@ -1,0 +1,29 @@
+Java의 특징을 설명해주세요.
+JVM의 역할에 대해 설명해주세요.
+Java의 컴파일 과정에 대해 설명해주세요.
+Java에서 제공하는 원시 타입들에 무엇이 있고, 각각 몇 바이트를 차지하나요?
+오버라이딩(Overriding)과 오버로딩(Overloading)에 대해 설명해주세요.
+객체지향 프로그래밍(OOP)에 대해 설명해주세요.
+객체지향프로그래밍과 절차지향프로그래밍의 차이
+불변 객체가 무엇인지 설명하고 대표적인 Java의 예시를 설명해주세요.
+추상 클래스와 인터페이스를 설명해주시고, 차이에 대해 설명해주세요.
+싱글톤 패턴에 대해 설명해주세요.
+가비지 컬렉션(Garbage Collection)에 대해 설명해주세요.
+가비지 컬렉션 과정에 대해 설명해주세요.
+클래스와 객체에 대해 설명해주세요.
+생성자(Constructor)에 대해 설명해주세요.
+Wrapper Class란 무엇이며, Boxing과 UnBoxing은 무엇인지 설명해주세요.
+Synchronized에 대해 아는 대로 말해주세요.
+new String()과 리터럴("")의 차이에 대해 설명해주세요.
+String, StringBuffer, StringBuilder의 차이를 설명해주세요
+String 객체가 불변인 이유에 대해 아는대로 설명해주세요.
+접근 제한자(Access Modifier)에 대해 설명해주세요.
+클래스 멤버 변수 초기화 순서에 대해 설명해주세요.
+static에 대해 설명해주세요.
+static을 사용하는 이유에 대해 설명해주세요.
+Inner Class(내부 클래스)의 장점에 대해 설명해주세요.
+Error와 Exception의 차이를 설명해주세요.
+CheckedException과 UnCheckedException의 차이를 설명해주세요.
+컬렉션 프레임워크에 대해 설명해주세요.
+Set과 Map의 타입이 Wrapper Class가 아닌 Object를 받을 때 중복 검사는 어떻게 할건지 설명해주세요.
+직렬화(Serialize)에 대해 설명해주세요.
